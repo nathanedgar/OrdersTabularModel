@@ -1,0 +1,1657 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-GB",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/almukprdbisql database windows net;almprdbidw",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "almukprdbisql.database.windows.net",
+            "database": "almprdbidw"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "NeuedaAdmin",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DEV cs_cosmos_DimCustomerProtocol",
+        "columns": [
+          {
+            "name": "CustomerName",
+            "dataType": "string",
+            "sourceColumn": "CustomerName"
+          },
+          {
+            "name": "ProtocolName",
+            "dataType": "string",
+            "sourceColumn": "ProtocolName"
+          },
+          {
+            "name": "CustProt",
+            "dataType": "string",
+            "sourceColumn": "CustProt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimCustomerProtocol = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimCustomerProtocol\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimCustomerProtocol"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_DimOrderType",
+        "columns": [
+          {
+            "name": "TransactionTypeID",
+            "dataType": "int64",
+            "sourceColumn": "TransactionTypeID"
+          },
+          {
+            "name": "TransactionType",
+            "dataType": "string",
+            "sourceColumn": "TransactionType"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimOrderType = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimOrderType\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimOrderType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_DimPartySiteLocation",
+        "columns": [
+          {
+            "name": "PartySiteID",
+            "dataType": "int64",
+            "sourceColumn": "PartySiteID"
+          },
+          {
+            "name": "PartyID",
+            "dataType": "int64",
+            "sourceColumn": "PartyID"
+          },
+          {
+            "name": "LocationID",
+            "dataType": "int64",
+            "sourceColumn": "LocationID"
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdateDateTime"
+          },
+          {
+            "name": "CreationDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "CreationDateTime"
+          },
+          {
+            "name": "PartySiteNo",
+            "dataType": "int64",
+            "sourceColumn": "PartySiteNo"
+          },
+          {
+            "name": "CountryCode",
+            "dataType": "string",
+            "sourceColumn": "CountryCode"
+          },
+          {
+            "name": "CountryName",
+            "dataType": "string",
+            "sourceColumn": "CountryName"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "sourceColumn": "AddressLine1"
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2"
+          },
+          {
+            "name": "AddressLine3",
+            "dataType": "string",
+            "sourceColumn": "AddressLine3"
+          },
+          {
+            "name": "AddressLine4",
+            "dataType": "string",
+            "sourceColumn": "AddressLine4"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "POSTAL_CODE",
+            "dataType": "string",
+            "sourceColumn": "POSTAL_CODE"
+          },
+          {
+            "name": "LocationState",
+            "dataType": "string",
+            "sourceColumn": "LocationState"
+          },
+          {
+            "name": "Province",
+            "dataType": "string",
+            "sourceColumn": "Province"
+          },
+          {
+            "name": "County",
+            "dataType": "string",
+            "sourceColumn": "County"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimPartySiteLocation = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimPartySiteLocation\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimPartySiteLocation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_DimCustomerShipToSite",
+        "columns": [
+          {
+            "name": "ShipToSite",
+            "dataType": "int64",
+            "sourceColumn": "ShipToSite"
+          },
+          {
+            "name": "CustomerAccountSiteID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAccountSiteID"
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdateDateTime"
+          },
+          {
+            "name": "CreationDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "CreationDateTime"
+          },
+          {
+            "name": "SiteUseCode",
+            "dataType": "string",
+            "sourceColumn": "SiteUseCode"
+          },
+          {
+            "name": "PrimaryFlag",
+            "dataType": "string",
+            "sourceColumn": "PrimaryFlag"
+          },
+          {
+            "name": "CustSiteStatus",
+            "dataType": "string",
+            "sourceColumn": "CustSiteStatus"
+          },
+          {
+            "name": "CustomerSiteNo",
+            "dataType": "string",
+            "sourceColumn": "CustomerSiteNo"
+          },
+          {
+            "name": "CustomerAccountID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAccountID"
+          },
+          {
+            "name": "ShipToPartySiteID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToPartySiteID"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimCustomerShipToSite = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimCustomerShipToSite\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimCustomerShipToSite"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_DimCourier",
+        "columns": [
+          {
+            "name": "ShippingMethodCode",
+            "dataType": "string",
+            "sourceColumn": "ShippingMethodCode"
+          },
+          {
+            "name": "ShippingMethodDescription",
+            "dataType": "string",
+            "sourceColumn": "ShippingMethodDescription"
+          },
+          {
+            "name": "IsEnabled",
+            "dataType": "string",
+            "sourceColumn": "IsEnabled"
+          },
+          {
+            "name": "ActiveFromDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "ActiveFromDateTime"
+          },
+          {
+            "name": "ActiveToDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "ActiveToDateTime"
+          },
+          {
+            "name": "CreationDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "CreationDateTime"
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdateDateTime"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimCourier = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimCourier\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimCourier"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_DimOrganisation",
+        "columns": [
+          {
+            "name": "OrganisationID",
+            "dataType": "int64",
+            "sourceColumn": "OrganisationID"
+          },
+          {
+            "name": "LocationID",
+            "dataType": "int64",
+            "sourceColumn": "LocationID"
+          },
+          {
+            "name": "OrgCode",
+            "dataType": "string",
+            "sourceColumn": "OrgCode"
+          },
+          {
+            "name": "OrgName",
+            "dataType": "string",
+            "sourceColumn": "OrgName"
+          },
+          {
+            "name": "OrgType",
+            "dataType": "string",
+            "sourceColumn": "OrgType"
+          },
+          {
+            "name": "FunctionalCurrency",
+            "dataType": "string",
+            "sourceColumn": "FunctionalCurrency"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimOrganisation = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimOrganisation\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimOrganisation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV DimCalendar",
+        "columns": [
+          {
+            "name": "DateID",
+            "dataType": "string",
+            "sourceColumn": "DateID"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "DayName",
+            "dataType": "string",
+            "sourceColumn": "DayName"
+          },
+          {
+            "name": "MonthOfYear",
+            "dataType": "int64",
+            "sourceColumn": "MonthOfYear"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayOfWeek"
+          },
+          {
+            "name": "DayOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayOfMonth"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayOfYear"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfMonth"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "IsWeekend",
+            "dataType": "boolean",
+            "sourceColumn": "IsWeekend"
+          },
+          {
+            "name": "IsHoliday",
+            "dataType": "boolean",
+            "sourceColumn": "IsHoliday"
+          },
+          {
+            "name": "HolidayText",
+            "dataType": "string",
+            "sourceColumn": "HolidayText"
+          },
+          {
+            "name": "MonthShortName",
+            "dataType": "string",
+            "sourceColumn": "MonthShortName"
+          },
+          {
+            "name": "MonthYear",
+            "dataType": "string",
+            "sourceColumn": "MonthYear"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_DimCalendar = Source{[Schema=\"DEV\",Item=\"DimCalendar\"]}[Data]",
+                "in",
+                "    DEV_DimCalendar"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "columns": [
+          {
+            "name": "OrgID",
+            "dataType": "int64",
+            "sourceColumn": "OrgID"
+          },
+          {
+            "name": "HeaderID",
+            "dataType": "int64",
+            "sourceColumn": "HeaderID"
+          },
+          {
+            "name": "OrderNo",
+            "dataType": "int64",
+            "sourceColumn": "OrderNo"
+          },
+          {
+            "name": "OrderTypeID",
+            "dataType": "int64",
+            "sourceColumn": "OrderTypeID"
+          },
+          {
+            "name": "SoldFromOrgID",
+            "dataType": "int64",
+            "sourceColumn": "SoldFromOrgID"
+          },
+          {
+            "name": "SoldToOrgID",
+            "dataType": "int64",
+            "sourceColumn": "SoldToOrgID"
+          },
+          {
+            "name": "ShipFromOrgID",
+            "dataType": "int64",
+            "sourceColumn": "ShipFromOrgID"
+          },
+          {
+            "name": "ShipToOrgID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToOrgID"
+          },
+          {
+            "name": "InvoiceToOrgID",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceToOrgID"
+          },
+          {
+            "name": "DeliverToContactID",
+            "dataType": "int64",
+            "sourceColumn": "DeliverToContactID"
+          },
+          {
+            "name": "SoldToContactID",
+            "dataType": "int64",
+            "sourceColumn": "SoldToContactID"
+          },
+          {
+            "name": "ShipToContactID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToContactID"
+          },
+          {
+            "name": "InvoiceToContactID",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceToContactID"
+          },
+          {
+            "name": "OrderDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDateTime"
+          },
+          {
+            "name": "RequestDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "RequestDateTime"
+          },
+          {
+            "name": "PricingDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "PricingDateTime"
+          },
+          {
+            "name": "PriceListID",
+            "dataType": "int64",
+            "sourceColumn": "PriceListID"
+          },
+          {
+            "name": "CustPONo",
+            "dataType": "string",
+            "sourceColumn": "CustPONo"
+          },
+          {
+            "name": "OrderStatus",
+            "dataType": "string",
+            "sourceColumn": "OrderStatus"
+          },
+          {
+            "name": "LiveLink",
+            "dataType": "string",
+            "sourceColumn": "LiveLink"
+          },
+          {
+            "name": "FlowStatusCode",
+            "dataType": "string",
+            "sourceColumn": "FlowStatusCode"
+          },
+          {
+            "name": "CancelledFlag",
+            "dataType": "string",
+            "sourceColumn": "CancelledFlag"
+          },
+          {
+            "name": "OpenFlag",
+            "dataType": "string",
+            "sourceColumn": "OpenFlag"
+          },
+          {
+            "name": "BookedFlag",
+            "dataType": "string",
+            "sourceColumn": "BookedFlag"
+          },
+          {
+            "name": "ShipmentPriorityCode",
+            "dataType": "string",
+            "sourceColumn": "ShipmentPriorityCode"
+          },
+          {
+            "name": "ShippingMethodCode",
+            "dataType": "string",
+            "sourceColumn": "ShippingMethodCode"
+          },
+          {
+            "name": "AWBNumber",
+            "dataType": "string",
+            "sourceColumn": "AWBNumber"
+          },
+          {
+            "name": "OrderSourceType",
+            "dataType": "string",
+            "sourceColumn": "OrderSourceType"
+          },
+          {
+            "name": "Protocol",
+            "dataType": "string",
+            "sourceColumn": "Protocol"
+          },
+          {
+            "name": "ShippedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShippedDate"
+          },
+          {
+            "name": "PODDate",
+            "dataType": "dateTime",
+            "sourceColumn": "PODDate"
+          },
+          {
+            "name": "Context",
+            "dataType": "string",
+            "sourceColumn": "Context"
+          },
+          {
+            "name": "OrderReceivedDate",
+            "dataType": "string",
+            "sourceColumn": "OrderReceivedDate"
+          },
+          {
+            "name": "UserExpectedShipDate",
+            "dataType": "string",
+            "sourceColumn": "UserExpectedShipDate"
+          },
+          {
+            "name": "OrgIDProt",
+            "dataType": "string",
+            "sourceColumn": "OrgIDProt"
+          },
+          {
+            "name": "CustomerName",
+            "dataType": "string",
+            "sourceColumn": "CustomerName"
+          },
+          {
+            "name": "ProjectNo",
+            "dataType": "int64",
+            "sourceColumn": "ProjectNo"
+          },
+          {
+            "name": "PODExists",
+            "dataType": "string",
+            "sourceColumn": "PODExists"
+          },
+          {
+            "name": "RLSCustProtProj",
+            "dataType": "string",
+            "sourceColumn": "RLSCustProtProj"
+          },
+          {
+            "name": "CustProt",
+            "dataType": "string",
+            "sourceColumn": "CustProt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_FactDistiOrderHeaders = Source{[Schema=\"DEV\",Item=\"cs_cosmos_FactDistiOrderHeaders\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_FactDistiOrderHeaders"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_FactOrders",
+        "columns": [
+          {
+            "name": "OrgID",
+            "dataType": "int64",
+            "sourceColumn": "OrgID"
+          },
+          {
+            "name": "HeaderID",
+            "dataType": "int64",
+            "sourceColumn": "HeaderID"
+          },
+          {
+            "name": "OrderNo",
+            "dataType": "int64",
+            "sourceColumn": "OrderNo"
+          },
+          {
+            "name": "OrderTypeID",
+            "dataType": "int64",
+            "sourceColumn": "OrderTypeID"
+          },
+          {
+            "name": "OrderVersionNo",
+            "dataType": "int64",
+            "sourceColumn": "OrderVersionNo"
+          },
+          {
+            "name": "OrderSourceID",
+            "dataType": "int64",
+            "sourceColumn": "OrderSourceID"
+          },
+          {
+            "name": "SoldFromOrgID",
+            "dataType": "int64",
+            "sourceColumn": "SoldFromOrgID"
+          },
+          {
+            "name": "SoldToOrgID",
+            "dataType": "int64",
+            "sourceColumn": "SoldToOrgID"
+          },
+          {
+            "name": "ShipFromOrgID",
+            "dataType": "int64",
+            "sourceColumn": "ShipFromOrgID"
+          },
+          {
+            "name": "ShipToOrgID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToOrgID"
+          },
+          {
+            "name": "InvoiceToOrgID",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceToOrgID"
+          },
+          {
+            "name": "DeliverToContactID",
+            "dataType": "int64",
+            "sourceColumn": "DeliverToContactID"
+          },
+          {
+            "name": "SoldToContactID",
+            "dataType": "int64",
+            "sourceColumn": "SoldToContactID"
+          },
+          {
+            "name": "ShipToContactID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToContactID"
+          },
+          {
+            "name": "InvoiceToContactID",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceToContactID"
+          },
+          {
+            "name": "OrderDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDateTime"
+          },
+          {
+            "name": "RequestDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "RequestDateTime"
+          },
+          {
+            "name": "PricingDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "PricingDateTime"
+          },
+          {
+            "name": "PriceListID",
+            "dataType": "int64",
+            "sourceColumn": "PriceListID"
+          },
+          {
+            "name": "CustPONo",
+            "dataType": "string",
+            "sourceColumn": "CustPONo"
+          },
+          {
+            "name": "OrderStatus",
+            "dataType": "string",
+            "sourceColumn": "OrderStatus"
+          },
+          {
+            "name": "LiveLink",
+            "dataType": "string",
+            "sourceColumn": "LiveLink"
+          },
+          {
+            "name": "FlowStatusCode",
+            "dataType": "string",
+            "sourceColumn": "FlowStatusCode"
+          },
+          {
+            "name": "CancelledFlag",
+            "dataType": "string",
+            "sourceColumn": "CancelledFlag"
+          },
+          {
+            "name": "OpenFlag",
+            "dataType": "string",
+            "sourceColumn": "OpenFlag"
+          },
+          {
+            "name": "BookedFlag",
+            "dataType": "string",
+            "sourceColumn": "BookedFlag"
+          },
+          {
+            "name": "Context",
+            "dataType": "string",
+            "sourceColumn": "Context"
+          },
+          {
+            "name": "ProjQuote",
+            "dataType": "string",
+            "sourceColumn": "ProjQuote"
+          },
+          {
+            "name": "RCVQuote",
+            "dataType": "string",
+            "sourceColumn": "RCVQuote"
+          },
+          {
+            "name": "SourceDoc",
+            "dataType": "int64",
+            "sourceColumn": "SourceDoc"
+          },
+          {
+            "name": "AWBNumber",
+            "dataType": "string",
+            "sourceColumn": "AWBNumber"
+          },
+          {
+            "name": "OrderSourceType",
+            "dataType": "string",
+            "sourceColumn": "OrderSourceType"
+          },
+          {
+            "name": "OrderReceivedDate",
+            "dataType": "string",
+            "sourceColumn": "OrderReceivedDate"
+          },
+          {
+            "name": "UserExpectedShipDate",
+            "dataType": "string",
+            "sourceColumn": "UserExpectedShipDate"
+          },
+          {
+            "name": "ShipmentPriorityCode",
+            "dataType": "string",
+            "sourceColumn": "ShipmentPriorityCode"
+          },
+          {
+            "name": "ShippingMethodCode",
+            "dataType": "string",
+            "sourceColumn": "ShippingMethodCode"
+          },
+          {
+            "name": "Protocol",
+            "dataType": "string",
+            "sourceColumn": "Protocol"
+          },
+          {
+            "name": "HeaderCreationDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "HeaderCreationDateTime"
+          },
+          {
+            "name": "HeaderLastUpdateDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "HeaderLastUpdateDateTime"
+          },
+          {
+            "name": "LineID",
+            "dataType": "int64",
+            "sourceColumn": "LineID"
+          },
+          {
+            "name": "OrderLineTypeID",
+            "dataType": "int64",
+            "sourceColumn": "OrderLineTypeID"
+          },
+          {
+            "name": "OrderlineNo",
+            "dataType": "int64",
+            "sourceColumn": "OrderlineNo"
+          },
+          {
+            "name": "OrderItemCode",
+            "dataType": "string",
+            "sourceColumn": "OrderItemCode"
+          },
+          {
+            "name": "OrderQtyUOM",
+            "dataType": "string",
+            "sourceColumn": "OrderQtyUOM"
+          },
+          {
+            "name": "PricingQty",
+            "dataType": "int64",
+            "sourceColumn": "PricingQty"
+          },
+          {
+            "name": "CancelledQty",
+            "dataType": "int64",
+            "sourceColumn": "CancelledQty"
+          },
+          {
+            "name": "FulFilledQty",
+            "dataType": "int64",
+            "sourceColumn": "FulFilledQty"
+          },
+          {
+            "name": "ShippingQty",
+            "dataType": "int64",
+            "sourceColumn": "ShippingQty"
+          },
+          {
+            "name": "ShippingQtyUOM",
+            "dataType": "string",
+            "sourceColumn": "ShippingQtyUOM"
+          },
+          {
+            "name": "DeliveryLeadTimeDays",
+            "dataType": "int64",
+            "sourceColumn": "DeliveryLeadTimeDays"
+          },
+          {
+            "name": "FreightCarrierCode",
+            "dataType": "string",
+            "sourceColumn": "FreightCarrierCode"
+          },
+          {
+            "name": "PaymentTermID",
+            "dataType": "double",
+            "sourceColumn": "PaymentTermID"
+          },
+          {
+            "name": "LineCreationDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "LineCreationDateTime"
+          },
+          {
+            "name": "LineLastUpdateDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "LineLastUpdateDateTime"
+          },
+          {
+            "name": "ItemTypeCode",
+            "dataType": "string",
+            "sourceColumn": "ItemTypeCode"
+          },
+          {
+            "name": "LineCategoryCode",
+            "dataType": "string",
+            "sourceColumn": "LineCategoryCode"
+          },
+          {
+            "name": "ShipmentDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipmentDate"
+          },
+          {
+            "name": "SourceTypeCode",
+            "dataType": "string",
+            "sourceColumn": "SourceTypeCode"
+          },
+          {
+            "name": "ReturnedFlag",
+            "dataType": "string",
+            "sourceColumn": "ReturnedFlag"
+          },
+          {
+            "name": "ReturnReasonCode",
+            "dataType": "string",
+            "sourceColumn": "ReturnReasonCode"
+          },
+          {
+            "name": "OrderedItemID",
+            "dataType": "int64",
+            "sourceColumn": "OrderedItemID"
+          },
+          {
+            "name": "IsFulfilled",
+            "dataType": "string",
+            "sourceColumn": "IsFulfilled"
+          },
+          {
+            "name": "IsShippable",
+            "dataType": "string",
+            "sourceColumn": "IsShippable"
+          },
+          {
+            "name": "OrderedQty",
+            "dataType": "int64",
+            "sourceColumn": "OrderedQty"
+          },
+          {
+            "name": "UnitSellingPrice",
+            "dataType": "double",
+            "sourceColumn": "UnitSellingPrice"
+          },
+          {
+            "name": "ItemID",
+            "dataType": "int64",
+            "sourceColumn": "ItemID"
+          },
+          {
+            "name": "FulfilledDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FulfilledDate"
+          },
+          {
+            "name": "ShippedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShippedDate"
+          },
+          {
+            "name": "PODDate",
+            "dataType": "dateTime",
+            "sourceColumn": "PODDate"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_FactOrders = Source{[Schema=\"DEV\",Item=\"cs_cosmos_FactOrders\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_FactOrders"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_DimInventoryItemType",
+        "columns": [
+          {
+            "name": "ItemID",
+            "dataType": "int64",
+            "sourceColumn": "ItemID"
+          },
+          {
+            "name": "ItemNo",
+            "dataType": "string",
+            "sourceColumn": "ItemNo"
+          },
+          {
+            "name": "OrgID",
+            "dataType": "int64",
+            "sourceColumn": "OrgID"
+          },
+          {
+            "name": "ItemDescription",
+            "dataType": "string",
+            "sourceColumn": "ItemDescription"
+          },
+          {
+            "name": "ItemType",
+            "dataType": "string",
+            "sourceColumn": "ItemType"
+          },
+          {
+            "name": "UnitOfMeasure",
+            "dataType": "string",
+            "sourceColumn": "UnitOfMeasure"
+          },
+          {
+            "name": "Blinded",
+            "dataType": "string",
+            "sourceColumn": "Blinded"
+          },
+          {
+            "name": "ItemCatalogGroupID",
+            "dataType": "string",
+            "sourceColumn": "ItemCatalogGroupID"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "int64",
+            "sourceColumn": "InsertedLogKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_DimInventoryItemType = Source{[Schema=\"DEV\",Item=\"cs_cosmos_DimInventoryItemType\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_DimInventoryItemType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DEV cs_cosmos_FactTempEZData",
+        "columns": [
+          {
+            "name": "SerialNumber",
+            "dataType": "string",
+            "sourceColumn": "SerialNumber"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "CustomerName",
+            "dataType": "string",
+            "sourceColumn": "CustomerName"
+          },
+          {
+            "name": "MonitorID",
+            "dataType": "int64",
+            "sourceColumn": "MonitorID"
+          },
+          {
+            "name": "MonitorProfileName",
+            "dataType": "string",
+            "sourceColumn": "MonitorProfileName"
+          },
+          {
+            "name": "CNTNUMBER",
+            "dataType": "string",
+            "sourceColumn": "CNTNUMBER"
+          },
+          {
+            "name": "MONSTATUS",
+            "dataType": "string",
+            "sourceColumn": "MONSTATUS"
+          },
+          {
+            "name": "OrderNo",
+            "dataType": "string",
+            "sourceColumn": "OrderNo"
+          },
+          {
+            "name": "STATICPROTID",
+            "dataType": "int64",
+            "sourceColumn": "STATICPROTID"
+          },
+          {
+            "name": "Protocol",
+            "dataType": "string",
+            "sourceColumn": "Protocol"
+          },
+          {
+            "name": "ShipToSiteNo",
+            "dataType": "string",
+            "sourceColumn": "ShipToSiteNo"
+          },
+          {
+            "name": "FACID",
+            "dataType": "double",
+            "sourceColumn": "FACID"
+          },
+          {
+            "name": "AlmacSite",
+            "dataType": "string",
+            "sourceColumn": "AlmacSite"
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipDate"
+          },
+          {
+            "name": "OTGSTATE",
+            "dataType": "string",
+            "sourceColumn": "OTGSTATE"
+          },
+          {
+            "name": "OTGStatus",
+            "dataType": "string",
+            "sourceColumn": "OTGStatus"
+          },
+          {
+            "name": "LOCKINGUSER",
+            "dataType": "string",
+            "sourceColumn": "LOCKINGUSER"
+          },
+          {
+            "name": "OTGPROFNAME",
+            "dataType": "string",
+            "sourceColumn": "OTGPROFNAME"
+          },
+          {
+            "name": "IVRREFNUMBER",
+            "dataType": "string",
+            "sourceColumn": "IVRREFNUMBER"
+          },
+          {
+            "name": "PDFURL",
+            "dataType": "string",
+            "sourceColumn": "PDFURL"
+          },
+          {
+            "name": "ORIGIN",
+            "dataType": "string",
+            "sourceColumn": "ORIGIN"
+          },
+          {
+            "name": "DateOfShipment",
+            "dataType": "string",
+            "sourceColumn": "DateOfShipment"
+          },
+          {
+            "name": "ShipStatus",
+            "dataType": "string",
+            "sourceColumn": "ShipStatus"
+          },
+          {
+            "name": "TempStatus",
+            "dataType": "string",
+            "sourceColumn": "TempStatus"
+          },
+          {
+            "name": "BRANDMODEL",
+            "dataType": "string",
+            "sourceColumn": "BRANDMODEL"
+          },
+          {
+            "name": "DATARETRIEVAL",
+            "dataType": "string",
+            "sourceColumn": "DATARETRIEVAL"
+          },
+          {
+            "name": "ShipCountry",
+            "dataType": "string",
+            "sourceColumn": "ShipCountry"
+          },
+          {
+            "name": "DATEPROGRAMMED",
+            "dataType": "string",
+            "sourceColumn": "DATEPROGRAMMED"
+          },
+          {
+            "name": "HIGHTEMP",
+            "dataType": "double",
+            "sourceColumn": "HIGHTEMP"
+          },
+          {
+            "name": "LOWTEMP",
+            "dataType": "double",
+            "sourceColumn": "LOWTEMP"
+          },
+          {
+            "name": "AVERAGETEMP",
+            "dataType": "double",
+            "sourceColumn": "AVERAGETEMP"
+          },
+          {
+            "name": "MEANKINTEMP",
+            "dataType": "double",
+            "sourceColumn": "MEANKINTEMP"
+          },
+          {
+            "name": "CNTSHIPCNDN",
+            "dataType": "string",
+            "sourceColumn": "CNTSHIPCNDN"
+          },
+          {
+            "name": "DOCUPLOADID",
+            "dataType": "int64",
+            "sourceColumn": "DOCUPLOADID"
+          },
+          {
+            "name": "MONUPLOADSOURCE",
+            "dataType": "string",
+            "sourceColumn": "MONUPLOADSOURCE"
+          },
+          {
+            "name": "PDFFILENAME",
+            "dataType": "string",
+            "sourceColumn": "PDFFILENAME"
+          },
+          {
+            "name": "UPCONNAME",
+            "dataType": "string",
+            "sourceColumn": "UPCONNAME"
+          },
+          {
+            "name": "UPCONEMAIL",
+            "dataType": "string",
+            "sourceColumn": "UPCONEMAIL"
+          },
+          {
+            "name": "UPCONPHONENUM",
+            "dataType": "string",
+            "sourceColumn": "UPCONPHONENUM"
+          },
+          {
+            "name": "UPLOADSTATUS",
+            "dataType": "string",
+            "sourceColumn": "UPLOADSTATUS"
+          },
+          {
+            "name": "UPLOADTYPE",
+            "dataType": "string",
+            "sourceColumn": "UPLOADTYPE"
+          },
+          {
+            "name": "HASSENSORDATA",
+            "dataType": "string",
+            "sourceColumn": "HASSENSORDATA"
+          },
+          {
+            "name": "UploadedDate",
+            "dataType": "string",
+            "sourceColumn": "UploadedDate"
+          },
+          {
+            "name": "SHIPSHIPPER",
+            "dataType": "string",
+            "sourceColumn": "SHIPSHIPPER"
+          },
+          {
+            "name": "Courier",
+            "dataType": "string",
+            "sourceColumn": "Courier"
+          },
+          {
+            "name": "ExcursionNo",
+            "dataType": "string",
+            "sourceColumn": "ExcursionNo"
+          },
+          {
+            "name": "ExcursionStatus",
+            "dataType": "string",
+            "sourceColumn": "ExcursionStatus"
+          },
+          {
+            "name": "ExcursionType",
+            "dataType": "string",
+            "sourceColumn": "ExcursionType"
+          },
+          {
+            "name": "ExcursionReason",
+            "dataType": "string",
+            "sourceColumn": "ExcursionReason"
+          },
+          {
+            "name": "EXCURSIONSECCATEGORY",
+            "dataType": "string",
+            "sourceColumn": "EXCURSIONSECCATEGORY"
+          },
+          {
+            "name": "EXCURSIONSECREASON",
+            "dataType": "string",
+            "sourceColumn": "EXCURSIONSECREASON"
+          },
+          {
+            "name": "ExcursionDecision",
+            "dataType": "string",
+            "sourceColumn": "ExcursionDecision"
+          },
+          {
+            "name": "SHIPNUMSORT",
+            "dataType": "string",
+            "sourceColumn": "SHIPNUMSORT"
+          },
+          {
+            "name": "MONSERIALNUMSORT",
+            "dataType": "string",
+            "sourceColumn": "MONSERIALNUMSORT"
+          },
+          {
+            "name": "CUSTNAMESORT",
+            "dataType": "string",
+            "sourceColumn": "CUSTNAMESORT"
+          },
+          {
+            "name": "PROTNAMESORT",
+            "dataType": "string",
+            "sourceColumn": "PROTNAMESORT"
+          },
+          {
+            "name": "InsertedLogKey",
+            "dataType": "string",
+            "sourceColumn": "InsertedLogKey"
+          },
+          {
+            "name": "VAR_PROT_ID",
+            "dataType": "int64",
+            "sourceColumn": "VAR_PROT_ID"
+          },
+          {
+            "name": "PROT_COSMOS_ID",
+            "dataType": "int64",
+            "sourceColumn": "PROT_COSMOS_ID"
+          },
+          {
+            "name": "APPROVED",
+            "dataType": "string",
+            "sourceColumn": "APPROVED"
+          },
+          {
+            "name": "VAR_PROT_ID_FUNCTION",
+            "dataType": "string",
+            "sourceColumn": "VAR_PROT_ID_FUNCTION"
+          },
+          {
+            "name": "TRANSIT_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "TRANSIT_MANAGEMENT"
+          },
+          {
+            "name": "EXCURSION_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "EXCURSION_MANAGEMENT"
+          },
+          {
+            "name": "INTEGRATIONS_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "INTEGRATIONS_MANAGEMENT"
+          },
+          {
+            "name": "ON_THE_GO_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "ON_THE_GO_MANAGEMENT"
+          },
+          {
+            "name": "LIFECYCLE_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "LIFECYCLE_MANAGEMENT"
+          },
+          {
+            "name": "COMPLIANCE_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "COMPLIANCE_MANAGEMENT"
+          },
+          {
+            "name": "THIRD_PARTY_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "THIRD_PARTY_MANAGEMENT"
+          },
+          {
+            "name": "SITE_COMP_MANAGEMENT",
+            "dataType": "boolean",
+            "sourceColumn": "SITE_COMP_MANAGEMENT"
+          },
+          {
+            "name": "AlmacSiteACS",
+            "dataType": "string",
+            "sourceColumn": "AlmacSiteACS"
+          },
+          {
+            "name": "CustProt",
+            "dataType": "string",
+            "sourceColumn": "CustProt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/almukprdbisql database windows net;almprdbidw\",",
+                "    DEV_cs_cosmos_FactTempEZData = Source{[Schema=\"DEV\",Item=\"cs_cosmos_FactTempEZData\"]}[Data]",
+                "in",
+                "    DEV_cs_cosmos_FactTempEZData"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "2a9867ce-c472-475c-bcda-f4c8d0fe008b",
+        "fromTable": "DEV cs_cosmos_DimCustomerShipToSite",
+        "fromColumn": "ShipToPartySiteID",
+        "toTable": "DEV cs_cosmos_DimPartySiteLocation",
+        "toColumn": "PartySiteID"
+      },
+      {
+        "name": "cc8b5563-8916-4ea3-b2e6-3ead68b8b0b5",
+        "fromTable": "DEV cs_cosmos_FactTempEZData",
+        "fromColumn": "AlmacSiteACS",
+        "toTable": "DEV cs_cosmos_DimOrganisation",
+        "toColumn": "OrgName"
+      },
+      {
+        "name": "5f393771-70be-4ee5-a0a7-b057c9da03c5",
+        "fromTable": "DEV cs_cosmos_FactTempEZData",
+        "fromColumn": "CustProt",
+        "toTable": "DEV cs_cosmos_DimCustomerProtocol",
+        "toColumn": "CustProt"
+      },
+      {
+        "name": "83a3b111-2bbe-4e0f-9983-b6f724291d64",
+        "fromTable": "DEV cs_cosmos_FactTempEZData",
+        "fromColumn": "ShipDate",
+        "toTable": "DEV DimCalendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "74ec92c5-e2f4-4d32-afa6-7b32c5a76d60",
+        "toCardinality": "many",
+        "fromTable": "DEV cs_cosmos_FactOrders",
+        "fromColumn": "OrderedItemID",
+        "toTable": "DEV cs_cosmos_DimInventoryItemType",
+        "toColumn": "ItemID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "7d7decee-93b5-44d7-a653-239fb9afb507",
+        "toCardinality": "many",
+        "fromTable": "DEV cs_cosmos_FactOrders",
+        "fromColumn": "OrderNo",
+        "toTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "toColumn": "OrderNo",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "fa325e0f-263d-4ed4-96d5-06613d600597",
+        "fromTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "fromColumn": "OrderTypeID",
+        "toTable": "DEV cs_cosmos_DimOrderType",
+        "toColumn": "TransactionTypeID"
+      },
+      {
+        "name": "2a5880f9-6ac7-42ef-b6b7-0d9ed365362a",
+        "fromTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "fromColumn": "CustProt",
+        "toTable": "DEV cs_cosmos_DimCustomerProtocol",
+        "toColumn": "CustProt"
+      },
+      {
+        "name": "8553d75a-4d49-42c1-96ce-dda34f6d2662",
+        "fromTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "fromColumn": "ShipFromOrgID",
+        "toTable": "DEV cs_cosmos_DimOrganisation",
+        "toColumn": "OrganisationID"
+      },
+      {
+        "name": "888dc278-392c-41b2-9655-81bea1003400",
+        "fromTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "fromColumn": "ShippedDate",
+        "toTable": "DEV DimCalendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "b1b068bf-b9d8-4df9-8ec4-62797c8ea115",
+        "fromTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "fromColumn": "ShippingMethodCode",
+        "toTable": "DEV cs_cosmos_DimCourier",
+        "toColumn": "ShippingMethodCode"
+      },
+      {
+        "name": "1f693097-31c6-4e0e-8eb1-3cd44871cf5c",
+        "fromTable": "DEV cs_cosmos_FactDistiOrderHeaders",
+        "fromColumn": "ShipToOrgID",
+        "toTable": "DEV cs_cosmos_DimCustomerShipToSite",
+        "toColumn": "ShipToSite"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
